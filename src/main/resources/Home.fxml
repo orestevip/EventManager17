@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="392.0" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@material.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EventView">
+<children>
+    <AnchorPane prefHeight="768.0" prefWidth="682.0" HBox.hgrow="SOMETIMES">
+        <children>
+            <BorderPane layoutX="41.0" layoutY="27.0" prefHeight="701.0" prefWidth="606.0" style="-fx-border-width: 1; -fx-border-style: solid; -fx-border-color: #707070" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="27.0">
+                <center>
+                    <TableView prefHeight="670.0" prefWidth="543.0" BorderPane.alignment="CENTER">
+                        <columns>
+                            <TableColumn minWidth="0.0" prefWidth="43.99996107816696" />
+                            <TableColumn prefWidth="57.60001754760742" text="nome" />
+                            <TableColumn prefWidth="56.79998779296875" text="data" />
+                            <TableColumn prefWidth="63.999969482421875" text="luogo" />
+                            <TableColumn prefWidth="69.59996032714844" text="prezzo" />
+                            <TableColumn prefWidth="87.20001220703125" text="capienza" />
+                            <TableColumn prefWidth="91.99996948242188" text="incasso" />
+                            <TableColumn prefWidth="40.800048828125" />
+                            <TableColumn prefWidth="38.39996337890625" />
+                        </columns>
+                    </TableView>
+                </center>
+                <left>
+                    <Pane maxWidth="-Infinity" prefHeight="650.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+                </left>
+                <right>
+                    <Pane prefHeight="650.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+                </right>
+                <bottom>
+                    <Pane prefHeight="15.0" prefWidth="604.0" BorderPane.alignment="CENTER" />
+                </bottom>
+                <top>
+                    <GridPane prefWidth="606.0" BorderPane.alignment="CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="231.93334293365479" minWidth="0.0" prefWidth="56.99999389648438" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.6" minWidth="10.0" prefWidth="286.4" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.33337402343744" minWidth="198.0" prefWidth="198.33337402343744" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="30.0" prefWidth="30.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="22.933344268798827" minHeight="3.733333253860472" prefHeight="9.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="57.066666746139525" minHeight="10.0" prefHeight="20.0" valignment="TOP" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="23.0" minHeight="3.0" prefHeight="9.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <JFXTextField focusColor="#afafaf" promptText="Search" unFocusColor="#bdbdbd" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <JFXButton alignment="CENTER" buttonType="RAISED" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="60.0" text="Add" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                        </children>
+                    </GridPane>
+                </top></BorderPane>
+            <JFXButton buttonType="RAISED" layoutX="36.0" layoutY="733.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#logOut" prefHeight="28.0" prefWidth="78.0" styleClass="default-color0" text="Log out" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="37.0">
+               <font>
+                  <Font size="9.0" />
+               </font>
+                <style>
+                    .button {
+                    -fx-background-color:rgb(0,0,0);
+                    }
+                </style>
+            </JFXButton>
+
+            <JFXButton buttonType="RAISED" layoutX="583.0" layoutY="733.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="60.0" text="Clear" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="37.0" />
+        </children>
+    </AnchorPane>
+    <Separator orientation="VERTICAL" prefHeight="200.0" />
+    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="682.0" HBox.hgrow="SOMETIMES">
+        <children>
+            <AnchorPane prefHeight="384.0" prefWidth="682.0">
+                <children>
+                    <BarChart layoutX="46.0" layoutY="8.0" prefHeight="365.0" prefWidth="548.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
+                        <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis side="LEFT" />
+                        </yAxis>
+                    </BarChart>
+                </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="384.0" prefWidth="682.0">
+                <children>
+                    <LineChart layoutX="53.0" layoutY="-36.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="5.0">
+                        <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis side="LEFT" />
+                        </yAxis>
+                    </LineChart>
+                </children>
+            </AnchorPane>
+        </children>
+    </VBox>
+</children>
+</HBox>

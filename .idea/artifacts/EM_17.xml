@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="EM-17">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.EventController" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="EM-17" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="EM_17.jar">
+        <element id="module-output" name="EM-17" />
+      </element>
+    </root>
+  </artifact>
+</component>
