@@ -52,7 +52,7 @@ public class EventController extends Application
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds:dataSnapshot.getChildren())
                 {
-                    
+
                 }
 
             }
