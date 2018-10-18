@@ -1,5 +1,7 @@
 package sample;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,8 @@ public class EventView
 
     private Stage appStage;
     @FXML  private Label messaggio_errore_login;
+    @FXML  private JFXTextField user_field;
+    @FXML  private JFXPasswordField password_field;
 
 
 
@@ -38,6 +42,9 @@ public class EventView
     {
         try
         {
+            String user=user_field.getText();
+            String password=password_field.getText();
+            if(user.isEmpty()||password.isEmpty())throw new CampiVuotiException();
             controller.Accedi("", "");
 
             FXMLLoader loader=new FXMLLoader(getClass().getClassLoader().getResource("Home.fxml"));
@@ -63,7 +70,9 @@ public class EventView
             controller.setVista(newview);
         }
         catch (IOException e) {}//setta messaggio errore}
-       catch (Exception e)     {messaggio_errore_login.setText(e.getMessage());}//}
+        catch (CampiVuotiException e){messaggio_errore_login.setText("inserire password e utente");}
+        catch (Exception e)     {messaggio_errore_login.setText(e.getMessage());}//}
+
 
     }
 }

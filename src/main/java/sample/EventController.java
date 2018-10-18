@@ -3,7 +3,7 @@ package sample;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.*;
 import com.intellij.ide.ui.EditorOptionsTopHitProvider;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -30,6 +30,8 @@ public class EventController extends Application
 
     public void Accedi(String user, String password) throws Exception
     {
+
+        org.apache.log4j.BasicConfigurator.configure();
         FileInputStream serviceAccount = new FileInputStream("target/classes/serviceAccountKey.json");//cerca chiave di servizio
 
         FirebaseOptions options = new FirebaseOptions.Builder()
@@ -41,7 +43,26 @@ public class EventController extends Application
         database_reference=FirebaseDatabase.getInstance();
 
 
-        //check credenziali per il login
+
+
+        DatabaseReference user_ref=database_reference.getReference().child("admin/");
+
+        user_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren())
+                {
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+                //check credenziali per il login
 
         //riempe observable list
     }
