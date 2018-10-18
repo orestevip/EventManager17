@@ -1,7 +1,5 @@
 package sample;
 
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,11 +34,11 @@ public class EventView
           catch (Exception e)   {e.printStackTrace();}
     }
 
-    public void logIn(ActionEvent actionEvent)
+    public void Autentica(ActionEvent actionEvent)
     {
         try
         {
-            controller.Autentica("", "");
+            controller.Accedi("", "");
 
             FXMLLoader loader=new FXMLLoader(getClass().getClassLoader().getResource("Home.fxml"));
 

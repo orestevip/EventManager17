@@ -14,20 +14,21 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apache.log4j.BasicConfigurator;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class EventController extends Application {
 
+public class EventController extends Application
+{
     private EventView                vista;
     private FirebaseDatabase         database_reference;
     private ObservableList<EventDAO> eventi;
 
 
+
     public void setVista(EventView vista) {this.vista = vista;}
 
-    public void Autentica(String user, String password) throws Exception
+    public void Accedi(String user, String password) throws Exception
     {
         FileInputStream serviceAccount = new FileInputStream("target/classes/serviceAccountKey.json");//cerca chiave di servizio
 
@@ -51,13 +52,6 @@ public class EventController extends Application {
                else{return eventi;}
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-        BasicConfigurator.configure();
-    }
-
-
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -79,4 +73,8 @@ public class EventController extends Application {
 
     }
 
+    public static void main(String[] args) {
+        launch(args);
+        BasicConfigurator.configure();
+    }
 }

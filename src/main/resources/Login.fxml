@@ -41,7 +41,7 @@
       </HBox>
       <VBox alignment="CENTER" prefHeight="110.0" prefWidth="467.0">
          <children>
-            <JFXButton alignment="CENTER" buttonType="RAISED" onAction="#logIn" prefHeight="43.0" prefWidth="98.0" text="Log in">
+            <JFXButton alignment="CENTER" buttonType="RAISED" onAction="#Autentica" prefHeight="43.0" prefWidth="98.0" text="Log in">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
