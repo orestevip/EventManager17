@@ -16,52 +16,67 @@ import javafx.stage.Stage;
 import org.apache.log4j.BasicConfigurator;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import static org.apache.batik.svggen.font.table.GlyfDescript.repeat;
 
 
 public class EventController extends Application
 {
     private EventView                vista;
-    private FirebaseDatabase         database_reference;
+    private FirebaseDatabase         database_reference=null;
     private ObservableList<EventDAO> eventi;
 
 
 
     public void setVista(EventView vista) {this.vista = vista;}
 
-    public void Accedi(String user, String password) throws Exception
+    public void Accedi(String user, String password ) throws Exception
     {
 
-        org.apache.log4j.BasicConfigurator.configure();
-        FileInputStream serviceAccount = new FileInputStream("target/classes/serviceAccountKey.json");//cerca chiave di servizio
+        if(database_reference==null)
+        {
 
-        FirebaseOptions options = new FirebaseOptions.Builder()
-            .setCredentials(GoogleCredentials.fromStream(serviceAccount))  //prepara le opzioni per accedere
-            .setDatabaseUrl("https://tickatme-da8ea.firebaseio.com")
-            .build();
+            org.apache.log4j.BasicConfigurator.configure();
+            FileInputStream serviceAccount = new FileInputStream("target/classes/serviceAccountKey.json");//cerca chiave di servizio
 
-        FirebaseApp.initializeApp(options); //fa partire il db
-        database_reference=FirebaseDatabase.getInstance();
+            FirebaseOptions options = new FirebaseOptions.Builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))  //prepara le opzioni per accedere
+                    .setDatabaseUrl("https://tickatme-da8ea.firebaseio.com")
+                    .build();
+
+            FirebaseApp.initializeApp(options); //fa partire il db
+            database_reference = FirebaseDatabase.getInstance();
+
+        }
 
 
 
 
-        DatabaseReference user_ref=database_reference.getReference().child("admin/");
+        DatabaseReference user_ref=database_reference.getReference();
 
-        user_ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds:dataSnapshot.getChildren())
-                {
 
-                }
+        /*user_ref.child("").addListenerForSingleValueEvent(new ValueEventListener() {
+         @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+         {
 
+                boolean found=false;
+
+                for (DataSnapshot ds : dataSnapshot.getChildren())
+                if (ds.child("username").getValue(String.class).equals(user) && ds.child("password").getValue(String.class).equals(password))found=true;
+
+                //if (found ==false)
             }
+         @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });*/
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+            //non funziona perchè va in asyncrono
+
+
+
                 //check credenziali per il login
 
         //riempe observable list
@@ -72,6 +87,7 @@ public class EventController extends Application
        if(eventi!=null) return eventi;
                else{return eventi;}
     }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception

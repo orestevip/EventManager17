@@ -44,8 +44,9 @@ public class EventView
         {
             String user=user_field.getText();
             String password=password_field.getText();
+
             if(user.isEmpty()||password.isEmpty())throw new CampiVuotiException();
-            controller.Accedi("", "");
+            controller.Accedi(user, password);
 
             FXMLLoader loader=new FXMLLoader(getClass().getClassLoader().getResource("Home.fxml"));
 
@@ -69,8 +70,8 @@ public class EventView
             newview.setStage(this.appStage);
             controller.setVista(newview);
         }
-        catch (IOException e) {}//setta messaggio errore}
         catch (CampiVuotiException e){messaggio_errore_login.setText("inserire password e utente");}
+        catch (CredenzialiErrateException e){messaggio_errore_login.setText("credenziali errate");}
         catch (Exception e)     {messaggio_errore_login.setText(e.getMessage());}//}
 
 
